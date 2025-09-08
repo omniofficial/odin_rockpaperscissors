@@ -106,3 +106,4 @@ if (humanScore < computerScore) {
 } else if (humanScore == computerScore) {
     console.log("The human and computer have tied!");
 }
+
