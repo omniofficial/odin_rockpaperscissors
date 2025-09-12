@@ -94,7 +94,9 @@ function displayScores() {
     console.log("Computer Score: " + computerScore);
 }
 
-for (let i = 1; i <= 5; i++) {
+let rounds = 100;
+
+for (let i = 1; i <= rounds; i++) {
     console.log("------------- GAME: " + i + " -------------");
     playGame();
 }
@@ -106,4 +108,3 @@ if (humanScore < computerScore) {
 } else if (humanScore == computerScore) {
     console.log("The human and computer have tied!");
 }
-
