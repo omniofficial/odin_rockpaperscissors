@@ -1,15 +1,25 @@
+const rockbtn = document.querySelector("#rock");
+const paperbtn = document.querySelector("#paper");
+const scissorsbtn = document.querySelector("#scissors");
+
+rockbtn.addEventListener("click", () => playGame(1));
+
+paperbtn.addEventListener("click", () => playGame(2));
+
+scissorsbtn.addEventListener("click", () => playGame(3));
+
 // Initialization of variables to keep track of scores
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame() {
-    const humanSelection = getHumanChoice();
+// Play game logic
+function playGame(humanSelection) {
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
     displayScores();
 }
 
-// Function to acquire the computer choice. Returns INT.
+// CHANGE INTO DOM. Function to acquire the computer choice. Returns INT.
 function getComputerChoice() {
     let choice;
     choice = Math.floor(Math.random() * 3) + 1;
@@ -20,24 +30,6 @@ function getComputerChoice() {
         console.log("The computer has chosen PAPER!");
     } else if (choice == 3) {
         console.log("The computer has chosen SCISSORS!");
-    }
-    return choice;
-}
-
-// Function to acquire the computer choice. Returns INT.
-function getHumanChoice() {
-    let choice = parseInt(
-        prompt(
-            "Please enter either (1) for ROCK, (2) for PAPER, or (3) for SCISSORS: "
-        )
-    );
-
-    if (choice == 1) {
-        console.log("You have chosen ROCK!");
-    } else if (choice == 2) {
-        console.log("You have chosen PAPER!");
-    } else if (choice == 3) {
-        console.log("You have chosen SCISSORS!");
     }
     return choice;
 }
@@ -94,7 +86,7 @@ function displayScores() {
     console.log("Computer Score: " + computerScore);
 }
 
-let rounds = 100;
+let rounds = 0;
 
 for (let i = 1; i <= rounds; i++) {
     console.log("------------- GAME: " + i + " -------------");
