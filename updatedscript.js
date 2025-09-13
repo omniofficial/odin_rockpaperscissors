@@ -20,6 +20,7 @@ function playGame(humanSelection) {
     displayComputerChoice(computerSelection);
     playRound(humanSelection, computerSelection, roundsPlayed);
     displayScores(roundsPlayed);
+    displayWinner();
 }
 
 // CHANGE INTO DOM. Function to acquire the computer choice. Returns INT.
@@ -56,7 +57,7 @@ function playRound(humanChoice, computerChoice, roundsPlayed) {
         // Update the header with the current round number
         roundHeader.textContent = `Round ${roundsPlayed} analysis`;
     }
-
+    roundHeader.classList.add("styled-header");
     // Find or create the message paragraph
     let contextParagraph = gameContainer.querySelector("p");
     if (!contextParagraph) {
@@ -99,29 +100,41 @@ function playRound(humanChoice, computerChoice, roundsPlayed) {
             "Looks like you tied! There is no winner. Scores will be kept the same";
     }
     contextParagraph.textContent = message;
-    // Add a class here to message to style it
+    contextParagraph.classList.add("styled-text");
     gameContainer.appendChild(contextParagraph);
 }
 
 function displayScores(roundsPlayed) {
     const scoreContainer = document.querySelector("#scores");
+    // Clear previous scores
+    scoreContainer.textContent = "";
 
-    const humanScore = document.createElement("p");
-    humanScore.textContent = `Human Score": ${humanScore}`;
-    // ADD CLASS HERE
+    const humanScoreElement = document.createElement("p");
+    humanScoreElement.textContent = `Human Score: ${humanScore}`;
+    humanScoreElement.classList.add("styled-text");
 
-    const computerScore = document.createElement("p");
-    computerScore.textContent = `Computer Score": ${computerScore}`;
-    // ADD CLASS HERE
+    const computerScoreElement = document.createElement("p");
+    computerScoreElement.textContent = `Computer Score: ${computerScore}`;
+    computerScoreElement.classList.add("styled-text");
 
-    scoreContainer.appendChild(humanScore);
-    scoreContainer.appendChild(computerScore);
+    scoreContainer.appendChild(humanScoreElement);
+    scoreContainer.appendChild(computerScoreElement);
 }
 
-if (humanScore < computerScore) {
-    console.log("You lose the whole game! The computer has won");
-} else if (humanScore > computerScore) {
-    console.log("You win the whole game! The computer has lost");
-} else if (humanScore == computerScore) {
-    console.log("The human and computer have tied!");
+function displayWinner() {
+    let message = "";
+    const winnerContainer = document.querySelector("#winner");
+    // Clear previous winner
+    winnerContainer.textContent = "";
+
+    const winnerLine = document.createElement("p");
+
+    if (humanScore === 5) {
+        message = "Congratulations, the player is the winner!";
+    } else if (computerScore === 5) {
+        message = "Better luck next time, the computer is the winner!";
+    }
+    winnerLine.textContent = message;
+    winnerLine.classList.add("styled-header");
+    winnerContainer.appendChild(winnerLine);
 }

@@ -4,22 +4,26 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rock Paper Scissors - Revision 2!</title>
-        <link href="styles.css" />
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <h1>ROCK PAPER SCISSORS USING DOM</h1>
-
-        <h2>PLAYER SELECTION:</h2>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <h1 class="main-title">ROCK PAPER SCISSORS USING DOM</h1>
+        <h2 class="secondary-title">PLAYER SELECTION:</h2>
+        <button id="rock" class="styled-button">Rock</button>
+        <button id="paper" class="styled-button">Paper</button>
+        <button id="scissors" class="styled-button">Scissors</button>
         <script src="updatedscript.js"></script>
 
-        <h2>COMPUTER SELECTION (randomized):</h2>
+        <h2 class="secondary-title">COMPUTER SELECTION (randomized):</h2>
         <div id="computer-choice"></div>
         <div id="play-round"></div>
 
-        <h2>------------- SCORES -------------</h2>
+        <h2 class="secondary-title">------------- SCORES -------------</h2>
         <div id="scores"></div>
+
+        <h2 class="secondary-title">
+            ------------- OVERALL WINNER (first to 5) -------------
+        </h2>
+        <div id="winner"></div>
     </body>
 </html>
