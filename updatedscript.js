@@ -57,7 +57,7 @@ function playRound(humanChoice, computerChoice, roundsPlayed) {
         // Update the header with the current round number
         roundHeader.textContent = `Round ${roundsPlayed} analysis`;
     }
-
+    roundHeader.classList.add("styled-header");
     // Find or create the message paragraph
     let contextParagraph = gameContainer.querySelector("p");
     if (!contextParagraph) {
@@ -100,7 +100,7 @@ function playRound(humanChoice, computerChoice, roundsPlayed) {
             "Looks like you tied! There is no winner. Scores will be kept the same";
     }
     contextParagraph.textContent = message;
-    // Add a class here to message to style it
+    contextParagraph.classList.add("styled-text");
     gameContainer.appendChild(contextParagraph);
 }
 
@@ -111,11 +111,11 @@ function displayScores(roundsPlayed) {
 
     const humanScoreElement = document.createElement("p");
     humanScoreElement.textContent = `Human Score: ${humanScore}`;
-    // ADD CLASS HERE
+    humanScoreElement.classList.add("styled-text");
 
     const computerScoreElement = document.createElement("p");
     computerScoreElement.textContent = `Computer Score: ${computerScore}`;
-    // ADD CLASS HERE
+    computerScoreElement.classList.add("styled-text");
 
     scoreContainer.appendChild(humanScoreElement);
     scoreContainer.appendChild(computerScoreElement);
@@ -135,6 +135,6 @@ function displayWinner() {
         message = "Better luck next time, the computer is the winner!";
     }
     winnerLine.textContent = message;
-    // ADD WINNER LINE CLASS HERE
+    winnerLine.classList.add("styled-header");
     winnerContainer.appendChild(winnerLine);
 }
