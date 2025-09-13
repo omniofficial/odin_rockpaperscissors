@@ -104,9 +104,18 @@ function playRound(humanChoice, computerChoice, roundsPlayed) {
 }
 
 function displayScores(roundsPlayed) {
-    console.log("------------- CURRENT SCORES ------------- ");
-    console.log("Human Score: " + humanScore);
-    console.log("Computer Score: " + computerScore);
+    const scoreContainer = document.querySelector("#scores");
+
+    const humanScore = document.createElement("p");
+    humanScore.textContent = `Human Score": ${humanScore}`;
+    // ADD CLASS HERE
+
+    const computerScore = document.createElement("p");
+    computerScore.textContent = `Computer Score": ${computerScore}`;
+    // ADD CLASS HERE
+
+    scoreContainer.appendChild(humanScore);
+    scoreContainer.appendChild(computerScore);
 }
 
 if (humanScore < computerScore) {
